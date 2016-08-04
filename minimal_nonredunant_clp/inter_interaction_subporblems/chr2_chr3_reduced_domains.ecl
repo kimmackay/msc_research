@@ -2450,7 +2450,7 @@ maximize(RowFile, FreqFile, Non_Zero_Rows) :-
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%  maximize the interaction frequency from the tuple
 	Cost #= -sum(Freqs),
-		search(Freqs, 0, input_order, indomain_max, bb_min(Cost), []),
+	minimize(search(Freqs, 0, input_order, indomain_max, complete, []), Cost),
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%% 	Output the results
